@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: singlephase.aux
+The style file: elsarticle-num.bst
+Database file #1: research.bib
+Warning--I'm ignoring Astrid11's extra "pages" field
+--line 238 of file research.bib
+Warning--I'm ignoring Astrid11's extra "year" field
+--line 240 of file research.bib
+Warning--there's a number but no volume in Kala14
+Warning--empty pages in Astrid11
+Warning--empty pages in Klie07
+Warning--empty publisher in Saad03
+You've used 24 entries,
+            2937 wiz_defined-function locations,
+            840 strings with 9645 characters,
+and the built_in function-call counts, 5677 in all, are:
+= -- 519
+> -- 98
+< -- 3
++ -- 48
+- -- 24
+* -- 286
+:= -- 759
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 22
+chr.to.int$ -- 6
+cite$ -- 28
+duplicate$ -- 181
+empty$ -- 764
+format.name$ -- 24
+if$ -- 1566
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 27
+newline$ -- 80
+num.names$ -- 24
+pop$ -- 156
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 442
+stack$ -- 0
+substring$ -- 256
+swap$ -- 22
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 41
+width$ -- 26
+write$ -- 197
+(There were 6 warnings)

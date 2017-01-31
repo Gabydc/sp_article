@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/dev/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: elsarticle-sp_1.aux
+The style file: elsarticle-num.bst
+Database file #1: research.bib
+Warning--I'm ignoring Astrid11's extra "pages" field
+--line 679 of file research.bib
+Warning--I'm ignoring Astrid11's extra "year" field
+--line 683 of file research.bib
+Warning--empty pages in Astrid11
+Warning--empty pages in Krogstad11
+Warning--empty pages in Klie07
+Warning--empty publisher in Saad03
+You've used 31 entries,
+            2937 wiz_defined-function locations,
+            881 strings with 10479 characters,
+and the built_in function-call counts, 7334 in all, are:
+= -- 650
+> -- 126
+< -- 5
++ -- 62
+- -- 31
+* -- 368
+:= -- 951
+add.period$ -- 31
+call.type$ -- 31
+change.case$ -- 24
+chr.to.int$ -- 6
+cite$ -- 35
+duplicate$ -- 237
+empty$ -- 1026
+format.name$ -- 31
+if$ -- 2041
+int.to.chr$ -- 0
+int.to.str$ -- 31
+missing$ -- 38
+newline$ -- 101
+num.names$ -- 31
+pop$ -- 224
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 570
+stack$ -- 0
+substring$ -- 314
+swap$ -- 27
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 51
+width$ -- 33
+write$ -- 251
+(There were 6 warnings)

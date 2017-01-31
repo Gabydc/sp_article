@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Flow through porous media}{}% 2
+\BOOKMARK [1][-]{section.3}{Iterative solution methods}{}% 3
+\BOOKMARK [2][-]{subsection.3.1}{Choices of Deflation Vectors}{section.3}% 4
+\BOOKMARK [1][-]{section.4}{Proper Orthogonal Decomposition \(POD\)}{}% 5
+\BOOKMARK [1][-]{section.5}{Deflation vector analysis.}{}% 6
+\BOOKMARK [2][-]{subsection.5.1}{Accuracy of the snapshots.}{section.5}% 7
+\BOOKMARK [2][-]{subsection.5.2}{Boundary conditions.}{section.5}% 8
+\BOOKMARK [1][-]{section.6}{Numerical experiments}{}% 9
+\BOOKMARK [2][-]{subsection.6.1}{Model.}{section.6}% 10
+\BOOKMARK [2][-]{subsection.6.2}{Incompressible Problem}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.3}{Compressible Problem}{section.6}% 12
+\BOOKMARK [1][-]{section.7}{Bibliography styles}{}% 13
+\BOOKMARK [1][-]{appendix.A}{List of notation}{}% 14
+\BOOKMARK [1][-]{appendix.B}{Stopping criteria}{}% 15
+\BOOKMARK [1][-]{appendix.C}{Singular Value Decomposition for POD}{}% 16
+\BOOKMARK [1][-]{appendix.D}{Deflation method}{}% 17

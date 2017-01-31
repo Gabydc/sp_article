@@ -1,0 +1,120 @@
+\documentclass[review]{elsarticle}
+\usepackage{lineno,hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{natbib}
+\usepackage{graphicx} % figuras
+\usepackage[export]{adjustbox} % loads also graphicx
+\usepackage{float}
+\usepackage[font=footnotesize]{caption}
+\usepackage{wrapfig}
+\biboptions{numbers,sort&compress}
+\modulolinenumbers[5]
+
+\journal{Journal of \LaTeX\ Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+
+
+
+\begin{table}[!h]\centering
+\begin{minipage}{1\textwidth}
+\begin{tabular}{ |l| } 
+\hline
+% \textbf{Algorithm 1}\\
+% \hline
+% \hline
+% \hspace{0.5cm}\textbf{for} $t=0,...,$    \hspace{52mm}    \%Time integration \\
+% \hspace{1cm} Select time step\\
+% \hspace{1cm}\textbf{for} $NR\_iter=0,...,$    \hspace{34mm}    \%NR iteration\\
+%  \hspace{1.5cm} Find zeros of $\mathbf{g}(\mathbf{p}^{n+1};\mathbf{p}^n)=0$\\
+% \hspace{1.5cm}\textbf{for} $lin\_iter=0,...,$    \hspace{31mm}    \%Linear iteration \\
+% \hspace{2cm}Solve $\mathbf{J}(\mathbf{p}^k)\delta \mathbf{p}^{k+1}=\mathbf{b}(\mathbf{p}^k)$ for each NR iteration\\
+% \hspace{1.5cm}\textbf{end}\\
+% \hspace{1cm}\textbf{end}\\
+% \hspace{0.5cm}\textbf{end}\\
+% \hline
+% \end{tabular}
+% \end{minipage}
+% \end{table}
+% 
+%  \begin{table}[!h]
+% \begin{tabular}{ |l| } 
+% \hline
+%   \textbf{Algorithm 2} Conjugate Gradient (CG) method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.\\
+%   \hline
+%  \hline
+% \\
+% Give an initial guess $\mathbf{x}^0$. \\Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$ and set $\mathbf{p}^0=\mathbf{r}^0$.\\
+% 
+% \hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence\\
+%  \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$\\
+% \hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$\\
+% \hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{A}\mathbf{p}^k$\\
+% \hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$\\
+% \hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$\\
+% \hspace{0.5cm}\textbf{end}\\
+% \hline
+% \end{tabular}
+% \end{table}
+
+
+ \begin{table}[!h]
+\begin{tabular}{ |c|c| } 
+\hline
+  \textbf{Algorithm 3} Deflated Conjugate Gradient (CG) method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.\\
+  \hline
+ \hline
+\\
+Give an initial guess $\mathbf{x}^0$. \\Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$ and set $\mathbf{p}^0=\mathbf{r}^0$.\\
+
+\hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence\\
+ \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$\\
+\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$\\
+\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{A}\mathbf{p}^k$\\
+\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$\\
+\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$\\
+\hspace{0.5cm}\textbf{end}\\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\end{document}

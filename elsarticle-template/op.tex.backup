@@ -1,0 +1,129 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+% Title Page
+\title{}
+\author{}
+
+
+\begin{document}
+
+Let $\mathbf{A} \mathbf{B}\in \mathbb{R}^{n\times n}$, and $\mathbf{x},\mathbf{y}\in \mathbb{R}^{n}$, $\alpha\in \mathbb{R}$.
+ \begin{table}[!h]
+\begin{tabular}{ |c|c|c| } 
+\hline
+Operation&\multicolumn{2}{|c|}{Operations}\\
+\hline
+&Full matrix&Sparse matrix (m non zero entries)\\
+\hline
+$\mathbf{x}^T\mathbf{y}$&$n(*) + n-1(+)= 2n - 1$&$ 2n - 1$\\
+\hline
+$\mathbf{x}(+/-)\mathbf{y}$&$n$ &$n$\\
+\hline
+$\alpha\mathbf{x}$&$n$ &$n$\\
+\hline
+$\mathbf{A}\mathbf{x}$ & $(n(*) + n-1(+)) n $ (r)  $= 2n^2 - n$ &$(m(*) + m-1(+)) n$ (r) $= 2mn - n$ \\
+\hline
+$\mathbf{A}\mathbf{B}$ & $[(n(*) + n-1(+)) n $ (r)$]n$ (c)  $= 2n^3 - n^2$ &$[(m(*) + m-1(+)) n$ (r) $]m$ (c) $= 2m^2n - nm$ \\
+\hline
+\multicolumn{3}{|c|}{$\mathbf{A} \in \mathbb{R}^{m\times n} \mathbf{B}\in \mathbb{R}^{n\times p}$} \\
+\hline
+$\mathbf{A}\mathbf{B}$ & \multicolumn{2}{|c|}{$mp(2n-1)$}  \\
+\hline
+$\mathbf{A}=\mathbf{L}\mathbf{L}^T$&$1/3n^3$&\\
+\hline
+ $\mathbf{L}\mathbf{x}=\mathbf{y}$& $n^2$ &\\
+\hline
+$\mathbf{L}^T\mathbf{x}=\mathbf{y}$& $n^2$ &\\
+\hline
+
+\end{tabular}
+\end{table}
+
+
+For each matrix vector multiplication we have n multitplications and n-1 additions 
+ \begin{table}[!h]
+\begin{tabular}{ |l|c|c| } 
+\hline
+  \textbf{Algorithm 1} CG method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.& \multicolumn{2}{|c|}{Operations}\\
+  \hline
+&Full matrix&Sparse matrix\\
+ \hline
+&&\\
+Give an initial guess $\mathbf{x}^0$. &&\\
+Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$ and set $\mathbf{p}^0=\mathbf{r}^0$.&$2n^2$&$2mn$\\
+\hline
+\hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence&&\\
+ \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$&$2n^2+3n-2$&$2nm+3n-2$\\
+\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{A}\mathbf{p}^k$&$2n^2+n$&$2nm+n$\\
+\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
+\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{0.5cm}\textbf{end}&&\\
+\hline
+Total each k&$4n^2+12n-3$&$4nm+12n-3$\\
+\hline
+\end{tabular}
+\end{table}
+
+ \begin{table}[!h]
+\begin{tabular}{ |l|c|c| } 
+\hline
+  \textbf{Algorithm 2} ICCG method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.& \multicolumn{2}{|c|}{Operations}\\
+  \hline
+Split preconditioner &Full matrix&Sparse matrix\\
+ \hline
+&&\\
+Give an initial guess $\mathbf{x}^0$. &&\\
+Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$.&$2n^2$&$2mn$\\
+Compute $\hat{\mathbf{r}}^0=\mathbf{L}^{-1}\mathbf{r}^0$.&$n^2$&$nm$\\
+Compute $\hat{\mathbf{p}}^0=\mathbf{L}^{-T}\hat{\mathbf{r}}^0$.&$n^2$&$nm$\\
+\hline
+\hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence&&\\
+ \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$&$2n^2+3n-2$&$2nm+3n-2$\\
+\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{L}^{-1}\mathbf{A}\mathbf{p}^k$&$3n^2+n$&$3nm+n$\\
+\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
+\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{L}^{-T}\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$n^2+2n$&$nm+2n$\\
+\hspace{0.5cm}\textbf{end}&&\\
+\hline
+Total each k&$6n^2+12n-3$&$6nm+12n-3$\\
+\hline
+\end{tabular}
+\end{table}
+
+ \begin{table}[!h]
+\begin{tabular}{ |l|c|c| } 
+\hline
+  \textbf{Algorithm 3} DICCG method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.& \multicolumn{2}{|c|}{Operations}\\
+  \hline
+Split preconditioner &Full matrix&Sparse matrix\\
+ \hline
+&&\\
+Compute $E=Z^T*A*Z$&$2np(2n-1)$ &
+
+\hline
+Give an initial guess $\mathbf{x}^0$. &&\\
+Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$.&$2n^2$&$2mn$\\
+Compute $\hat{\mathbf{r}}^0=\mathbf{L}^{-1}\mathbf{r}^0$.&$n^2$&$nm$\\
+Compute $\hat{\mathbf{p}}^0=\mathbf{L}^{-T}\hat{\mathbf{r}}^0$.&$n^2$&$nm$\\
+\hline
+\hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence&&\\
+ \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$&$2n^2+3n-2$&$2nm+3n-2$\\
+\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{L}^{-1}\mathbf{A}\mathbf{p}^k$&$3n^2+n$&$3nm+n$\\
+\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
+\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{L}^{-T}\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$n^2+2n$&$nm+2n$\\
+\hspace{0.5cm}\textbf{end}&&\\
+\hline
+Total each k&$6n^2+12n-3$&$6nm+12n-3$\\
+\hline
+\end{tabular}
+\end{table}
+
+
+\end{document}          

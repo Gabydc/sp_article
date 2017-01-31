@@ -1,0 +1,124 @@
+\begin{thebibliography}{10}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Vuik02}
+C.~V. A. S.~L. Yaakoubi, E.~Dufour, {A comparison of various deflation vectors
+  applied to elliptic problems with discontinuous coefficients.}, Applied
+  Numerical Mathematics 41~(1) (2002) 219--233.
+
+\bibitem{Benzi02}
+{M. Benzi}, {Preconditioning techniques for large linear systems: a survey},
+  {Journal of computational Physics} {182}~({2}) ({2002}) {418--477}.
+
+\bibitem{Heijn04}
+T.~H. R. M. J.~J. et~al., {Generation of low-order reservoir models using
+  system-theoretical concepts}, SPE Journal 9~(02) (2004) 202--218.
+
+\bibitem{Barone09}
+{M. Barone; I.Kalashnikova; M. Brake and D. Segalman}, {Reduced order modeling
+  of fluid/structure interaction}, {Sandia National Laboratories Report, SAND
+  No} {7189}.
+
+\bibitem{Kala14}
+{I. Kalashnikova; S. Arunajatesan; M.F. Barone; B.G. van Bloemen Waanders and
+  J.A. Fike }, {Reduced order modeling for prediction and control of
+  large-scale systems}, {Sandia National Laboratories Report,
+  SAND}~({2014-4693}).
+
+\bibitem{Kunisch02}
+{K. Kunisch and S. Volkwein}, {Galerkin proper orthogonal decomposition methods
+  for a general equation in fluid dynamics}, {SIAM Journal on Numerical
+  analysis} {40}~({2}) ({2002}) {492--515}.
+
+\bibitem{Doren06}
+{J. van Doren; R. Markovinovi{\'c} and J.D. Jansen}, {Reduced-order optimal
+  control of water flooding using proper orthogonal decomposition},
+  {Computational Geosciences} {10}~({1}) ({2006}) {137--158}.
+
+\bibitem{Astrid11}
+P.~A. G. P.~J. Vink, J.~Jansen, {Pressure Preconditioning Using Proper
+  Orthogonal Decomposition.}, in: 2011 SPE Reservoir Simulation Symposium, The
+  Woodlands, Texas, USA, 2011.
+
+\bibitem{Mark06}
+R.~Markovinovi{\'c}, J.~Jansen, {Accelerating iterative solution methods using
+  reduced-order models as solution predictors.}, International journal for
+  numerical methods in engineering 68~(5) (2006) 525--541.
+
+\bibitem{Pasetto16}
+{M. Pasetto; M. Ferronato and M. Putti}, {A reduced order model-based
+  preconditioner for the efficient solution of transient diffusion equations},
+  {International Journal for Numerical Methods in Engineering}.
+
+\bibitem{Carlberg15}
+{Carlberg, Kevin and Forstall, Virginia and Tuminaro, Ray}, {Krylov-subspace
+  recycling via the POD-augmented conjugate-gradient algorithm}, {arXiv
+  preprint arXiv:1512.05820}.
+
+\bibitem{Vuik99}
+C.~V.~A. Segal, J.~A. Meijerink, {An Efficient Preconditioned CG Method for the
+  Solution of a Class of Layered Problems with Extreme Contrasts in the
+  Coefficients.}, Journal of Computational Physics 152 (1999) 385.
+
+\bibitem{Christie01}
+M.~Christie, M.~Blunt., Tenth spe comparative solution project: a comparison of
+  upscaling techniques., SPE Reservoir Engineering and Evaluation 4~(4) (2001)
+  308--317.
+
+\bibitem{Klie07}
+H.~K. M. W. K. S. T.~C. et~al., Deflation amg solvers for highly
+  ill-conditioned reservoir simulation problems, in: SPE Reservoir Simulation
+  Symposium, Society of Petroleum Engineers, 2007.
+
+\bibitem{Tang09}
+J.~T. R. N.~C. Vuik, Y.~Erlangga, Comparison of two-level preconditioners
+  derived from deflation, domain decomposition and multigrid methods, Journal
+  of scientific computing 39~(3) (2009) 340--370.
+
+\bibitem{Jansen13}
+J.~Jansen, {A systems description of flow through porous media.}, Springer,
+  2013.
+
+\bibitem{Cordazzo02}
+{Cordazzo, Jonas and Maliska, Clovis Raimundo and Silva, AFC}, {Interblock
+  transmissibility calculation analysis for petroleum reservoir simulation},
+  in: {2nd Meeting on Reservoir Simulation, Universidad Argentina de la
+  Empresa, Buenos Aires, Argentina, November}, {2002}, pp. {5--6}.
+
+\bibitem{Tang08}
+J.~Tang, {Two-Level Preconditioned Conjugate Gradient Methods with Applications
+  to Bubbly Flow Problems}, Ph.D. thesis, Delft University of Technology
+  (2008).
+
+\bibitem{Clemens04}
+M.~C. M. W.~R. Schuhmann, T.~Weiland, {Subspace projection extrapolation scheme
+  for transient field simulations.}, IEEE Transactions on Magnetics 40~(2)
+  (2004) 934--937.
+
+\bibitem{Smith96}
+B.~S.~P. Bjorstad, W.~Gropp, {Domain decomposition: parallel multilevel methods
+  for elliptic partial differential equations.}, Cambridge University Press New
+  York, 1996.
+
+\bibitem{Saad03}
+Y.~Saad, {Iterative Methods for Sparse Linear Systems.}, 2nd Edition, Society
+  for Industrial and Applied Mathematics Philadelphia, PA, USA, 2003.
+
+\bibitem{Strang09}
+G.~Strang, Linear Algebra and Its Applications, Wellesley-Cambridge Press,
+  2009.
+
+\bibitem{Lie13}
+K.~A. Lie, {An Introduction to Reservoir Simulation Using MATLAB: User guide
+  for the Matlab Reservoir Simulation Toolbox (MRST).}, SINTEF ICT, 2013.
+
+\bibitem{Diaz16}
+{G.B. Diaz Cortes; C. Vuik and J.D. Jansen }, {Physics-based pre-conditioners
+  for large-scale subsurface flow simulation}, Tech. rep., {Delft University of
+  Technology, Department of Applied Mathematics} ({03} {2016}).
+
+\end{thebibliography}
