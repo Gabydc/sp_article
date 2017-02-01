@@ -5,6 +5,15 @@
 \usepackage{latexsym}
 \usepackage{amsfonts}
 \usepackage{mathrsfs}
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ right=10mm,
+ lmargin=10mm,
+ top=20mm,
+ }
 % Title Page
 \title{}
 \author{}
@@ -45,7 +54,7 @@ $\mathbf{L}^T\mathbf{x}=\mathbf{y}$& $n^2$ &\\
 \end{table}
 
 
-For each matrix vector multiplication we have n multitplications and n-1 additions 
+
  \begin{table}[!h]
 \begin{tabular}{ |l|c|c| } 
 \hline
@@ -69,6 +78,29 @@ Total each k&$4n^2+12n-3$&$4nm+12n-3$\\
 \hline
 \end{tabular}
 \end{table}
+
+ \begin{table}[!h]
+\begin{tabular}{ |l|c|c| } 
+\hline
+  \textbf{Algorithm 2} Incomplete Cholesky factorization IC(0)& \multicolumn{2}{|c|}{Operations}\\
+  \hline
+&Full matrix&Sparse matrix\\
+ \hline
+
+\hspace{0.5cm}\textbf{for} $k=1,...,n$ &&\\
+ \hspace{1cm} $\mathbf{L}(k,k)=\sqrt{\mathbf{A}(k,k)-\sum_{j=1}^{k-1}\mathbf{L}(k,j)}$&$2n^2+3n-2$&$2nm+3n-2$\\
+\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{A}\mathbf{p}^k$&$2n^2+n$&$2nm+n$\\
+\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
+\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$2n$&$2n$\\
+\hspace{0.5cm}\textbf{end}&&\\
+\hline
+Total each k&$4n^2+12n-3$&$4nm+12n-3$\\
+\hline
+\end{tabular}
+\end{table}
+
+
 
  \begin{table}[!h]
 \begin{tabular}{ |l|c|c| } 
@@ -104,27 +136,78 @@ Total each k&$6n^2+12n-3$&$6nm+12n-3$\\
 Split preconditioner &Full matrix&Sparse matrix\\
  \hline
 &&\\
-Compute $E=Z^T*A*Z$&$2np(2n-1)$ &$2np(2m-1)$\\
-
+Let $\mathbf{Z}\in \mathbb{R}^{n\times p}$&&\\
+ $\mathbf{E}=\mathbf{Z}^T\mathbf{A}\mathbf{Z}$&$2np(2n-1)$ &$2np(2m-1)$\\
+$\mathbf{Q}\mathbf{x}=\mathbf{Z}\mathbf{E}^{-1}\mathbf{Z}^T\mathbf{x}$&$n^2+3np-n+2p^2-2p$&$n^2+3np-n+2p^2-2p$\\
+$\mathbf{P}\mathbf{x}=(\mathbf{I}-\mathbf{A}\mathbf{Q})\mathbf{x}$&$3n^2+3np+2p^2-2p-n$&$2nm+n^2+3np+2p^2-2p-n$\\
 \hline
+\end{tabular}
+\end{table}
+
+
+
+ \begin{table}[!h]
+\begin{tabular}{ |l|c|c| } 
+\hline
+  \textbf{Algorithm 3} DICCG method, solving $\mathbf{A}\mathbf{x}=\mathbf{b}$.& \multicolumn{2}{|c|}{Operations}\\
+  \hline
+Split preconditioner &Full matrix&Sparse matrix\\
+ \hline
+
 Give an initial guess $\mathbf{x}^0$. &&\\
 Compute $\mathbf{r}^0=\mathbf{b}-\mathbf{A}\mathbf{x}^0$.&$2n^2$&$2mn$\\
-Compute $\mathbf{r}^0=\mathbf{P}\mathbf{r}^0$.&$4n^2-n$&$4mn-n$\\
+Compute $\hat{\mathbf{r}}^0=\mathbf{P}\mathbf{r}^0$.&$3n^2+3np+2p^2-2p-n$&$2nm+n^2+3np+2p^2-2p-n$\\
 Compute $\mathbf{y}^0=\mathbf{L}^{-1}\hat{\mathbf{r}}^0$.&$n^2$&$nm$\\
-Compute $\hat{\mathbf{p}}^0=\mathbf{L}^{-T}\hat{\mathbf{r}}^0$.&$n^2$&$nm$\\
+Compute $\hat{\mathbf{p}}^0=\mathbf{L}^{-T}\mathbf{y}^0$.&$n^2$&$nm$\\
 \hline
 \hspace{0.5cm}\textbf{for} $k=0,...,$ until convergence&&\\
- \hspace{1cm} $\alpha^k=\frac{(\mathbf{r}^{k},\mathbf{r}^{k})}{(\mathbf{A}\mathbf{p}^k,\mathbf{p}^k)}$&$2n^2+3n-2$&$2nm+3n-2$\\
+ \hspace{1cm}$\hat{\mathbf{w}}^0=\mathbf{P}\mathbf{A}\mathbf{p}^k$.&$5n^2+3np+2p^2-2p-2n$&$4nm+n^2+3np+2p^2-2p-2n$\\
+ \hspace{1cm} $\alpha^k=\frac{(\hat{\mathbf{r}}^{k},\mathbf{y}^{k})}{(\mathbf{p}^k,\hat{\mathbf{w}}^k)}$&$2n^2+3n-2$&$2nm+3n-2$\\
 \hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
 \hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{L}^{-1}\mathbf{A}\mathbf{p}^k$&$3n^2+n$&$3nm+n$\\
 \hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
 \hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{L}^{-T}\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$n^2+2n$&$nm+2n$\\
 \hspace{0.5cm}\textbf{end}&&\\
+Total each k&$11n^2+3np+2p^2-2p+10n-3$&$10nm+n^2+3np+2p^2-2p+10n-3$\\
 \hline
-Total each k&$6n^2+12n-3$&$6nm+12n-3$\\
+\hspace{0.5cm} $\mathbf{x}_{it} = \mathbf{Q}\mathbf{b}+\mathbf{P}^T\mathbf{x}^{k+1}$&$4n^2+6np+4p^2-4p-2n$&$2nm+2n^2+6np+4p^2-4p-2n$\\
 \hline
 \end{tabular}
 \end{table}
+
+
+Let $\mathbf{A} \in \mathbb{R}^{n\times n}$, with $m$ non zero entries per row.
+ \begin{table}[!h]
+\begin{tabular}{ |c|c|c| } 
+\hline
+Operation&\multicolumn{2}{|c|}{Operations}\\
+\hline
+&Full matrix&Sparse matrix (m non zero entries)\\
+\hline
+$\mathbf{A}=\mathbf{U}\Sigma\mathbf{V}^T$&$\~ 13n^3$&$ \~ 11n^3+2mn^2$\\
+\hline
+$\mathbf{x}(+/-)\mathbf{y}$&$n$ &$n$\\
+\hline
+$\alpha\mathbf{x}$&$n$ &$n$\\
+\hline
+$\mathbf{A}\mathbf{x}$ & $(n(*) + n-1(+)) n $ (r)  $= 2n^2 - n$ &$(m(*) + m-1(+)) n$ (r) $= 2mn - n$ \\
+\hline
+$\mathbf{A}\mathbf{B}$ & $[(n(*) + n-1(+)) n $ (r)$]n$ (c)  $= 2n^3 - n^2$ &$[(m(*) + m-1(+)) n$ (r) $]m$ (c) $= 2m^2n - nm$ \\
+\hline
+\multicolumn{3}{|c|}{$\mathbf{A} \in \mathbb{R}^{m\times n} \mathbf{B}\in \mathbb{R}^{n\times p}$} \\
+\hline
+$\mathbf{A}\mathbf{B}$ & \multicolumn{2}{|c|}{$mp(2n-1)$}  \\
+\hline
+$\mathbf{A}=\mathbf{L}\mathbf{L}^T$&$1/3n^3$&\\
+\hline
+ $\mathbf{L}\mathbf{x}=\mathbf{y}$& $n^2$ &\\
+\hline
+$\mathbf{L}^T\mathbf{x}=\mathbf{y}$& $n^2$ &\\
+\hline
+
+\end{tabular}
+\end{table}
+
 
 
 \end{document}          
