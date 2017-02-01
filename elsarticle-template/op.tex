@@ -87,15 +87,13 @@ Total each k&$4n^2+12n-3$&$4nm+12n-3$\\
 &Full matrix&Sparse matrix\\
  \hline
 
-\hspace{0.5cm}\textbf{for} $k=1,...,n$ &&\\
- \hspace{1cm} $\mathbf{L}(k,k)=\sqrt{\mathbf{A}(k,k)-\sum_{j=1}^{k-1}\mathbf{L}(k,j)}$&$2n^2+3n-2$&$2nm+3n-2$\\
-\hspace{1cm} $\mathbf{x}^{k+1}=\mathbf{x}^k+\alpha^k\mathbf{p}^k$&$2n$&$2n$\\
-\hspace{1cm}$\mathbf{r}^{k+1}=\mathbf{r}^k-\alpha^k\mathbf{A}\mathbf{p}^k$&$2n^2+n$&$2nm+n$\\
-\hspace{1cm}$ \beta^k=\frac{(\mathbf{r}^{k+1},\mathbf{r}^{k+1})}{(\mathbf{r}^k,\mathbf{r}^k)}$&$4n-1$&$4n-1$\\
-\hspace{1cm}$\mathbf{p}^{k+1}=\mathbf{r}^{k+1}+\beta^k\mathbf{p}^k$&$2n$&$2n$\\
-\hspace{0.5cm}\textbf{end}&&\\
-\hline
-Total each k&$4n^2+12n-3$&$4nm+12n-3$\\
+\hspace{0.5cm}\textbf{for} $j=2,...,n$ &&\\
+ \hspace{1cm} 1) Eliminate $a_{ij}$ from $\mathbf{R}_j$\\
+\hspace{1cm} Divide $\mathbf{R}_i$ by $a_{ii}$ &$n-i$&$m-i$\\
+\hspace{1cm} Multiply $\mathbf{R}_i$ by $a_{ij}$ &$(n-i+1)(n-i)$&$(m-i+1)(n-i)$\\
+\hspace{1cm} Substraction $\mathbf{R}_j-\mathbf{R}_i$ &$(n-i+1)(n-i)$&$(m-i+1)(n-i)$\\
+
+Total number of operations is &$\sum_{i=1}^{n-1}(n-i)(2n-2i+3)$&$\sum_{i=1}^{n-1}(n-1)(2n-2i+3)$\\
 \hline
 \end{tabular}
 \end{table}
