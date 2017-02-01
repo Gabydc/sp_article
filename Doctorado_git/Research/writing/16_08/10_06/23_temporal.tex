@@ -1,0 +1,168 @@
+\documentclass[12pt]{report}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{natbib}
+\usepackage{graphicx} % figuras
+%\usepackage[export]{adjustbox} % loads also graphicx
+\usepackage{float}
+\usepackage[font=footnotesize]{caption}
+\usepackage{wrapfig}
+%\usepackage{authblk}
+%\usepackage{subfigure}
+\usepackage{pifont}
+\usepackage{a4wide}
+\usepackage{wrapfig}
+ \usepackage{tabu}
+%\usepackage{multirow}% 
+
+%\graphicspath{/home/wagm/cortes/Localdisk/Results/16_05/05_09/}
+\topmargin=-2pt
+\title{Physics-based pre-conditioners for large-scale subsurface flow simulation}
+
+%\author[1]{G. B. Diaz Cortes}  
+%\author[1]{C. Vuik} 
+%\author[2]{J. D. Jansen} 
+%\affil[1]{Department of Applied Mathematics, TU Delft}
+%\affil[2]{Department of Geoscience \& Engineering, TU Delft}
+%\renewcommand\Authands{ and }
+%\date{March 2016}
+\begin{document}
+\thispagestyle{empty}
+% \noindent
+% \begin{center}
+% {\Large \sc DELFT UNIVERSITY OF TECHNOLOGY}
+% \\
+% \vspace{3cm}
+% {\large \sc REPORT 16-03}\\[4ex]
+% {\large \sc Physics-based pre-conditioners for large-scale subsurface flow simulation}\\[4ex]
+% {\large \sc G. B. Diaz Cortes, C. Vuik, J. D. Jansen}\\
+% \vfill
+% {\tt ISSN 1389-6520}\\[2ex]
+% {\tt Reports of the Delft Institute of Applied Mathematics}\\[2ex]
+% {\tt Delft 2016}
+% \end{center}
+% \pagebreak
+% \thispagestyle{empty}
+% \vspace*{\fill}
+% \noindent
+% \hspace*{-0,3cm}Copyright~~~\Pisymbol{psy}{227}~~~2016 by Delft Institute of Applied Mathematics, Delft, \mbox{The Netherlands.}
+% \\[2ex]
+% No part of the Journal may be reproduced, stored in a retrieval system, or
+% transmitted, in any form or by any means, electronic, mechanical, photocopying,
+% recording, or otherwise, without the prior written permission from Delft Institute of
+% Applied Mathematics, Delft University of Technology, The
+% Netherlands. 
+% % newpage, title etc.
+% \setcounter{page}{1}
+
+
+% Title Page
+
+
+
+
+
+I changed the stopping criterium. The new stopping criterium is:
+$$\frac{||l^{-1}r||_2}{||l^{-1}b||_2}\leq tol+\frac{tolNR}{||x_k||_2},$$
+with tolNR the tolerance of the NR method, and tol the tolerance of the linear solver.
+\subsection*{Incompressible}
+\begin{figure}[H]
+ \centering
+ \begin{minipage}{.5\textwidth}
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+%{/home/wagm/cortes/Localdisk/Results/16_06/21/size_35perm_0_5wells_5_defvect0c01/solution.jpg}
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_0/solution.jpg}
+\caption{Solution, well fluxes}
+\label{fig:insol1}
+\end{minipage}%
+\hspace{4mm}
+\begin{minipage}{.45\textwidth}
+ \centering
+ \centering
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_0/iterations_4NR.jpg}
+\caption{Number of iterations ICCG only}
+\label{fig:initer1}
+\end{minipage}%
+\end{figure}%
+\begin{figure}[H]
+ \centering
+ \begin{minipage}{.5\textwidth}
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+%{/home/wagm/cortes/Localdisk/Results/16_06/21/size_35perm_0_5wells_5_defvect0c01/solution.jpg}
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_1/solution.jpg}
+\caption{Solution, well fluxes}
+\label{fig:insol1}
+\end{minipage}%
+\hspace{4mm}
+\begin{minipage}{.45\textwidth}
+ \centering
+ \centering
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_1/iterations_4NR.jpg}
+\caption{Number of iterations ICCG and DICCG}
+\label{fig:initer1}
+\end{minipage}%
+\end{figure}%
+
+
+
+\subsection*{Compressible}
+\begin{figure}[H]
+ \centering
+ \begin{minipage}{.5\textwidth}
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+%{/home/wagm/cortes/Localdisk/Results/16_06/21/size_35perm_0_5wells_5_defvect0c01/solution.jpg}
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_0c/solution.jpg}
+\caption{Solution, well fluxes}
+\label{fig:insol1}
+\end{minipage}%
+\hspace{4mm}
+\begin{minipage}{.45\textwidth}
+ \centering
+ \centering
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_0c/iterations_4NR.jpg}
+\caption{Number of iterations ICCG only}
+\label{fig:initer1}
+\end{minipage}%
+\end{figure}%
+\begin{figure}[H]
+ \centering
+ \begin{minipage}{.5\textwidth}
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+%{/home/wagm/cortes/Localdisk/Results/16_06/21/size_35perm_0_5wells_5_defvect0c01/solution.jpg}
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_1c/solution.jpg}
+\caption{Solution, well fluxes}
+\label{fig:insol1}
+\end{minipage}%
+\hspace{4mm}
+\begin{minipage}{.45\textwidth}
+ \centering
+ \centering
+\includegraphics[width=9cm,height=9cm,keepaspectratio]
+{/home/wagm/cortes/Localdisk/Results/16_06/23/perm_0snap_5_defvect3rNR_0_1c/iterations_4NR.jpg}
+\caption{Number of iterations ICCG and DICCG}
+\label{fig:initer1}
+\end{minipage}%
+\end{figure}%
+
+For the incompressible problem it works well, but for the compressible problem again we only observe changes
+after the 2nd NR iteration with the deflation method.\\
+The residual of the NR iteration is 
+$$resNorm=norm(res)\leq tolNR,$$
+and we use this residual as right hand side 
+$$A=J, \qquad b=res, \qquad y=upd.$$
+I was thinking in two details, the first one is that if we have a good solution for the previous time step, 
+this means that the residual of the NR iteration is small, and this is our right hand side, then we are 
+dividing by a small number and maybe this can cause some problems. \\
+We want to solve $Ay=b$, so if we already have an accurate $||b||_2\approx tol$ then we should have 
+$||Ay||_2\approx tol$. 
+Then I was thinking that maybe we can use this in the stopping criterium for the linear solver. 
+
+
+
+
+\end{document}
